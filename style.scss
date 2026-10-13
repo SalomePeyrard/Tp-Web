@@ -1,0 +1,224 @@
+:root {
+  --light: #fff6e6;
+  --darkGrey: #3a3a3a;
+  --gold: #b99049;
+  --red: #b71713;
+  --green: #124b10;
+  --blue: #078cb1;
+  --yellow: #e1b50c;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./../font/Rubik-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./../font/Rubik-Bold.ttf");
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("./../images/bgHP.webp") repeat;
+  font-family: "Rubik";
+}
+
+main {
+  background-color: var(--light);
+  max-width: 1024px;
+  margin: auto;
+  margin-bottom: 70px;
+
+  h3 {
+    text-transform: uppercase;
+    border-bottom: 3px solid black;
+    text-align: center;
+    color: var(--DarkGrey, #3a3a3a);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 10px;
+  }
+
+  h2 {
+    color: var(--DarkGrey, #3a3a3a);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 54px;
+  }
+}
+
+footer {
+  background-color: #000;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+    color: #fff;
+  }
+}
+
+.header {
+  h1 {
+    margin-bottom: 20px;
+  }
+  display: flex;
+  max-width: 1024px;
+  margin: auto;
+  margin-top: 20px;
+  &__right img {
+    height: 100px;
+    margin-right: 20px;
+  }
+
+  &__left {
+    width: 100%;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      li {
+        list-style: none;
+        font-weight: bold;
+      }
+    }
+    img {
+      display: none;
+    }
+  }
+}
+
+.houses {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(185, 144, 73, 0.5);
+  padding: 30px;
+  flex-wrap: wrap;
+
+  & > div {
+    border-radius: 140px;
+    width: 140px;
+    height: 140px;
+    text-align: center;
+    &:hover {
+      background: #fff6e6;
+    }
+  }
+
+  img {
+    width: 121px;
+    height: 136px;
+  }
+}
+
+.characters {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 30px;
+  & > div {
+    padding: 30px;
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    border: 8px solid var(--Gold, #b99049);
+    background: url(<path-to-image>), lightgray -1.24px 0px / 101.653% 141.566% no-repeat;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+  }
+  p {
+    text-align: center;
+    color: var(--Gold, #b99049);
+  }
+}
+
+/* PAGE PERSO */
+.page_perso {
+  h3 {
+    padding: 50px 50px 0 50px;
+  }
+  .perso {
+    background: rgba(185, 144, 73, 0.5);
+    padding: 50px;
+    display: flex;
+
+    &__right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      & > div {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      p.attr {
+        font-weight: bold;
+      }
+    }
+  }
+
+  figure {
+    width: 215px;
+    margin-right: 120px;
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      background: rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      height: 66px;
+      justify-content: center;
+      font-size: 20px;
+    }
+  }
+
+  .house__perso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  header {
+    width: 90%;
+    h1,
+    ul {
+      display: none !important;
+    }
+
+    .header__left {
+      display: flex;
+      justify-content: flex-end;
+      img {
+        display: block !important;
+        height: 70px;
+      }
+    }
+  }
+
+  .houses {
+    flex-direction: column;
+    align-content: space-around;
+  }
+}
