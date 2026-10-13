@@ -10,12 +10,12 @@
 
 @font-face {
   font-family: "Rubik";
-  src: url("./../font/Rubik-Regular.ttf");
+  src: url("./Rubik-Regular.ttf");
 }
 
 @font-face {
   font-family: "Rubik";
-  src: url("./../font/Rubik-Bold.ttf");
+  src: url("./Rubik-Bold.ttf");
   font-weight: bold;
 }
 
@@ -25,7 +25,7 @@
 }
 
 body {
-  background: url("./../images/bgHP.webp") repeat;
+  background: url("./bgHP.webp") repeat;
   font-family: "Rubik";
 }
 
@@ -74,13 +74,17 @@ footer {
 }
 
 .header {
+  box-sizing: border-box;
   h1 {
     margin-bottom: 20px;
+    font-size: 24px;
   }
   display: flex;
   max-width: 1024px;
   margin: auto;
   margin-top: 20px;
+  padding: 0 20px;
+  align-items: center;
   &__right img {
     height: 100px;
     margin-right: 20px;
@@ -88,14 +92,22 @@ footer {
 
   &__left {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
     ul {
       display: flex;
       justify-content: space-between;
-      width: 80%;
+      gap: 24px;
       li {
         list-style: none;
         font-weight: bold;
       }
+    }
+    a {
+      color: var(--darkGrey);
+      text-decoration: none;
     }
     img {
       display: none;
@@ -115,6 +127,9 @@ footer {
     width: 140px;
     height: 140px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:hover {
       background: #fff6e6;
     }
@@ -138,14 +153,14 @@ footer {
     width: 150px;
     height: 150px;
     border-radius: 150px;
-    border: 8px solid var(--Gold, #b99049);
-    background: url(<path-to-image>), lightgray -1.24px 0px / 101.653% 141.566% no-repeat;
+    border: 8px solid var(--gold, #b99049);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     object-fit: cover;
   }
   p {
     text-align: center;
-    color: var(--Gold, #b99049);
+    color: var(--gold, #b99049);
+    margin-top: 12px;
   }
 }
 
@@ -220,5 +235,27 @@ footer {
   .houses {
     flex-direction: column;
     align-content: space-around;
+    gap: 20px;
+  }
+
+  .header {
+    padding: 0 10px;
+    &__right img {
+      height: 70px;
+    }
+    &__left h1 {
+      display: none;
+    }
+  }
+
+  .characters {
+    padding: 20px 10px;
+    & > div {
+      padding: 20px 10px;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+    }
   }
 }

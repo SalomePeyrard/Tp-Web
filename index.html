@@ -1,35 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-     <title>TON PRENOM NOM - Partiel Harry Potter</title>
+    <meta
+      name="description"
+      content="Découvrez les maisons et les personnages de l'univers Harry Potter."
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Salomé Peyrard-Wiki Harry Potter</title>
   </head>
   <body>
-   
     <main>
-       <header class="header">
-      <div class="header__right">
-        <img src="./images/logo/logo.png" />
-      </div>
-      <div class="header__left">
-        <h1>TON PRENOM NOM - Wiki Harry Potter</h1>
-   
-        <img src="./images/menu.png" alt="" srcset="" />
-      </div>
-    </header>
-      <section>
-        <h3>HOUSES</h3>
-        <div class="houses"></div>
+      <header class="header">
+        <div class="header__right">
+          <a href="./index.html" aria-label="Accueil du Wiki Harry Potter">
+            <img src="./logo.png" alt="Logo Harry Potter" />
+          </a>
+        </div>
+        <div class="header__left">
+          <h1>Salomé Peyrard-Wiki Harry Potter</h1>
+          <nav class="site-nav" id="site-nav" aria-label="Navigation principale" hidden>
+            <ul>
+              <li><a href="#houses">Maisons</a></li>
+              <li><a href="#spells">Sorts</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#gallery">Gallerie</a></li>
+            </ul>
+          </nav>
+          <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <section id="houses" aria-labelledby="houses-title">
+        <h3 id="houses-title">Maisons</h3>
+        <div class="houses">
+          <button class="house house--gryffindor" type="button" data-house="gryffindor" aria-label="Filtrer les personnages de Gryffondor" aria-pressed="false"><img src="./Gryffindor.png" alt="Gryffondor" /></button>
+          <button class="house house--hufflepuff" type="button" data-house="hufflepuff" aria-label="Filtrer les personnages de Poufsouffle" aria-pressed="false"><img src="./Hufflepuff.png" alt="Poufsouffle" /></button>
+          <button class="house house--ravenclaw" type="button" data-house="ravenclaw" aria-label="Filtrer les personnages de Serdaigle" aria-pressed="false"><img src="./Ravenclaw.png" alt="Serdaigle" /></button>
+          <button class="house house--slytherin" type="button" data-house="slytherin" aria-label="Filtrer les personnages de Serpentard" aria-pressed="false"><img src="./Slytherin.png" alt="Serpentard" /></button>
+        </div>
       </section>
-      <section>
-        <h3>Characters</h3>
-        <div class="characters"></div>
+
+      <section id="characters" aria-labelledby="characters-title">
+        <h3 id="characters-title">Personnages</h3>
+        <p id="characters-status" role="status" aria-live="polite">Chargement des personnages…</p>
+        <div class="characters" id="characters-list"></div>
       </section>
     </main>
     <footer>
-      <p>Wiki Happy Potter is a FANDOM community</p>
+      <p>Wiki Harry Potter — une communauté de fans</p>
     </footer>
+    <script src="./app.js" defer></script>
   </body>
 </html>

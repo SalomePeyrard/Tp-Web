@@ -10,11 +10,11 @@
 
 @font-face {
   font-family: "Rubik";
-  src: url("./../font/Rubik-Regular.ttf");
+  src: url("./Rubik-Regular.ttf");
 }
 @font-face {
   font-family: "Rubik";
-  src: url("./../font/Rubik-Bold.ttf");
+  src: url("./Rubik-Bold.ttf");
   font-weight: bold;
 }
 * {
@@ -23,7 +23,7 @@
 }
 
 body {
-  background: url("./../images/bgHP.webp") repeat;
+  background: url("./bgHP.webp") repeat;
   font-family: "Rubik";
 }
 
@@ -70,13 +70,18 @@ footer p {
 }
 
 .header {
+  box-sizing: border-box;
+  position: relative;
   display: flex;
   max-width: 1024px;
   margin: auto;
   margin-top: 20px;
+  padding: 0 20px;
+  align-items: center;
 }
 .header h1 {
   margin-bottom: 20px;
+  font-size: 24px;
 }
 .header__right img {
   height: 100px;
@@ -85,20 +90,83 @@ footer p {
 .header__left {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
   text-transform: uppercase;
+}
+.header__left h1 {
+  margin-right: auto;
 }
 .header__left ul {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  gap: 24px;
 }
 .header__left ul li {
   list-style: none;
   font-weight: bold;
 }
-.header__left img {
+.header__left a {
+  color: var(--darkGrey);
+  text-decoration: none;
+}
+.menu-toggle {
+  order: 2;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--darkGrey);
+}
+.menu-toggle:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+.site-nav {
+  position: static;
+  order: 3;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 0;
+  margin-top: 8px;
+  background: var(--light);
+}
+.site-nav[hidden] {
   display: none;
+}
+.site-nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.site-nav li {
+  list-style: none;
+}
+.site-nav a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--darkGrey);
+  text-decoration: none;
+}
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: rgba(185, 144, 73, 0.2);
 }
 
 .houses {
@@ -108,18 +176,48 @@ footer p {
   padding: 30px;
   flex-wrap: wrap;
 }
-.houses > div {
+.houses > button {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
   border-radius: 140px;
   width: 140px;
   height: 140px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
-.houses > div:hover {
-  background: #fff6e6;
+.houses > button:hover,
+.houses > button:focus-visible {
+  transform: translateY(-4px);
+}
+.houses > button:focus-visible {
+  outline: 3px solid var(--darkGrey);
+  outline-offset: 3px;
+}
+.houses > button[aria-pressed="true"] {
+  background-color: rgba(58, 58, 58, 0.12);
+}
+.houses .house--gryffindor:hover {
+  background-color: rgba(183, 23, 19, 0.15);
+}
+.houses .house--hufflepuff:hover {
+  background-color: rgba(225, 181, 12, 0.2);
+}
+.houses .house--ravenclaw:hover {
+  background-color: rgba(7, 140, 177, 0.15);
+}
+.houses .house--slytherin:hover {
+  background-color: rgba(18, 75, 16, 0.15);
 }
 .houses img {
   width: 121px;
   height: 136px;
+  pointer-events: none;
 }
 
 .characters {
@@ -128,22 +226,93 @@ footer p {
   flex-wrap: wrap;
   padding: 30px;
 }
+.characters-status,
+#characters-status,
+#character-status {
+  padding: 20px;
+  text-align: center;
+}
 .characters > div {
   padding: 30px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.characters a {
+  color: inherit;
+  text-decoration: none;
+}
+.characters > div:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.03);
 }
 .characters img {
   width: 150px;
   height: 150px;
   border-radius: 150px;
-  border: 8px solid var(--Gold, #b99049);
-  background: url(<path-to-image>), lightgray -1.24px 0px/101.653% 141.566% no-repeat;
+  border: 8px solid var(--gold, #b99049);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   object-fit: cover;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.characters .character-deceased img,
+.page_perso figure img.is-deceased {
+  filter: grayscale(100%);
+}
+.characters .image-placeholder,
+.page_perso .image-placeholder {
+  box-sizing: border-box;
+  width: 150px;
+  height: 150px;
+  border: 8px solid var(--gold, #b99049);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--darkGrey);
+}
+.characters > div:hover img {
+  transform: scale(1.04);
+}
+.house-gryffindor img {
+  border-color: var(--red, #b71713);
+  box-shadow: 0px 0px 0px 2px rgba(183, 23, 19, 0.25);
+}
+.house-hufflepuff img {
+  border-color: var(--yellow, #e1b50c);
+  box-shadow: 0px 0px 0px 2px rgba(225, 181, 12, 0.25);
+}
+.house-ravenclaw img {
+  border-color: var(--blue, #078cb1);
+  box-shadow: 0px 0px 0px 2px rgba(7, 140, 177, 0.25);
+}
+.house-slytherin img {
+  border-color: var(--green, #124b10);
+  box-shadow: 0px 0px 0px 2px rgba(18, 75, 16, 0.25);
+}
+.house-unknown img {
+  border-color: var(--gold, #b99049);
 }
 .characters p {
   text-align: center;
-  color: var(--Gold, #b99049);
+  color: var(--gold, #b99049);
+  margin-top: 12px;
 }
+.characters .house-gryffindor p {
+  color: var(--red, #b71713);
+}
+.characters .house-hufflepuff p {
+  color: var(--yellow, #e1b50c);
+}
+.characters .house-ravenclaw p {
+  color: var(--blue, #078cb1);
+}
+.characters .house-slytherin p {
+  color: var(--green, #124b10);
+}
+
+
 
 /* PAGE PERSO */
 .page_perso h3 {
@@ -174,6 +343,14 @@ footer p {
 .page_perso figure img {
   width: 100%;
 }
+.page_perso figure img[hidden] {
+  display: none;
+}
+.page_perso figure .image-placeholder {
+  width: 100%;
+  border-radius: 0;
+  height: 286px;
+}
 .page_perso figure figcaption {
   background: rgba(255, 255, 255, 0.5);
   display: flex;
@@ -192,22 +369,67 @@ footer p {
   header {
     width: 90%;
   }
-  header h1,
-header ul {
+  header h1 {
     display: none !important;
   }
   header .header__left {
     display: flex;
     justify-content: flex-end;
   }
-  header .header__left img {
-    display: block !important;
-    height: 70px;
-  }
 
   .houses {
     flex-direction: column;
     align-content: space-around;
+    gap: 20px;
+  }
+  .header {
+    padding: 0 10px;
+  }
+  .header__right img {
+    height: 70px;
+  }
+  .header__left h1 {
+    display: none;
+  }
+  .site-nav {
+    width: 100%;
+  }
+  .characters {
+    padding: 20px 10px;
+  }
+  .characters > div {
+    padding: 20px 10px;
+  }
+  .characters img {
+    width: 120px;
+    height: 120px;
+  }
+  .characters .image-placeholder {
+    width: 120px;
+    height: 120px;
+  }
+  .page_perso h3 {
+    padding: 30px 20px 0;
+  }
+  .page_perso .perso {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 30px 20px;
+  }
+  .page_perso figure {
+    width: min(215px, 100%);
+    margin-right: 0;
+  }
+  .page_perso .perso__right {
+    gap: 16px;
+  }
+  .page_perso .perso__right > div {
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .page_perso .house__perso img {
+    width: min(250px, 80%);
   }
 }
 

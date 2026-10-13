@@ -1,47 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./css/style.css" />
-    <title>TON PRENOM NOM - Partiel Harry Potter</title>
+    <meta
+      name="description"
+      content="Consultez les informations détaillées sur un personnage de l'univers Harry Potter."
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Fiche personnage | Wiki Harry Potter</title>
   </head>
   <body class="page_perso">
     <header class="header">
       <div class="header__right">
-        <a href="index.html">
-        <img src="./images/logo/logo.png" />
-    </a>
- </div>
+        <a href="./index.html" aria-label="Retour à l'accueil du Wiki Harry Potter">
+          <img src="./logo.png" alt="Logo Harry Potter" />
+        </a>
+      </div>
       <div class="header__left">
-        <h1>TON PRENOM NOM - Partiel Harry Potter</h1>
-        <ul>
-          <li>Students</li>
-          <li>Staff</li>
-          <li>Houses</li>
-          <li>Spells</li>
-        </ul>
-        <img src="./images/menu.png" alt="" srcset="" />
+        <h1>Wiki Harry Potter</h1>
+        <nav class="site-nav" id="site-nav" aria-label="Navigation principale" hidden>
+          <ul>
+            <li><a href="./index.html#houses">Maisons</a></li>
+            <li><a href="./index.html#spells">Sorts</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
+            <li><a href="./index.html#gallery">Gallerie</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
+
     <main>
-      <section>
-        <h3>Harry Potter</h3>
+      <section aria-labelledby="character-title">
+        <h3 id="character-title">Personnage</h3>
+        <p id="character-status" role="status" aria-live="polite">Chargement de la fiche…</p>
         <div class="perso">
           <figure class="perso__left">
-            <img src="./images/characters/harry.webp" alt="" srcset="" />
-            <figcaption>Nom de l'acteur</figcaption>
+            <img id="character-image" alt="" />
+            <figcaption id="character-actor"></figcaption>
           </figure>
+
           <div class="perso__right">
-            
+            <div>
+              <p class="attr">Maison</p>
+              <p id="character-house"></p>
+            </div>
+            <div>
+              <p class="attr">Genre</p>
+              <p id="character-gender"></p>
+            </div>
+            <div>
+              <p class="attr">Surnoms</p>
+              <p id="character-nicknames"></p>
+            </div>
+            <div>
+              <p class="attr">Date de naissance</p>
+              <p id="character-birth"></p>
+            </div>
+            <div>
+              <p class="attr">Patronus</p>
+              <p id="character-patronus"></p>
+            </div>
+            <div>
+              <p class="attr">Yeux</p>
+              <p id="character-eyes"></p>
+            </div>
+            <div>
+              <p class="attr">Statut</p>
+              <p id="character-alive"></p>
+            </div>
+          </div>
         </div>
       </section>
-      <section class="house__perso">
-        <img src="./images/logo/Gryffindor.png" alt="" srcset="" />
+
+      <section class="house__perso" id="character-house-crest" aria-label="Maison du personnage">
       </section>
     </main>
+
     <footer>
-      <p>Wiki Happy Potter is a FANDOM community</p>
+      <p>Wiki Harry Potter — une communauté de fans</p>
     </footer>
+    <script src="./app.js" defer></script>
   </body>
 </html>
